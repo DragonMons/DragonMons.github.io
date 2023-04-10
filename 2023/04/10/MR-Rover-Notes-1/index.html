@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="*初步配置及上手*
+*下载插件和包*
+从 Microsoft 下载中心下载混合现实功能工具的最新版本。在混合现实功能工具中，选择“启动”。选择“浏览”按钮（它是下图中的“三个点”按钮），导航到你的项目，然后将其打开。
+检验路径没问题后，选择“发现功能”。单击“混合现实工具包(0&amp;#x2F;10)”左">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="John Doe">
+    
+
+    <!-- Title -->
+    
+    <title>MR火星车学习笔记（1）——初步配置及上手 | Hexo</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//cdn.jsdelivr.net/npm/bootstrap@3.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//cdn.jsdelivr.net/npm/font-awesome@4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Noto+Serif:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- jQuery -->
+    <script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="//cdn.jsdelivr.net/npm/bootstrap@3.3.6/dist/js/bootstrap.min.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+
+    <!-- Content -->
+    <section class="article-container">
+    <!-- Back Home -->
+    <a class="nav-back" href="/">
+    <i class="fa fa-puzzle-piece"></i>
+</a>
+
+        <!-- Page Header -->
+        <header class="intro-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                        <div class="post-heading">
+                            <h1>
+                                MR火星车学习笔记（1）——初步配置及上手
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Post Content -->
+        <article>
+            <div class="container">
+                <div class="row">
+                    <!-- Post Main Content -->
+                    <div class="post-content col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                        <p><em><strong>*初步配置及上手*</strong></em></p>
+<p><em><strong>*下载插件和包*</strong></em></p>
+<p>从 Microsoft 下载中心下载混合现实功能工具的最新版本。在混合现实功能工具中，选择“启动”。选择“浏览”按钮（它是下图中的“三个点”按钮），导航到你的项目，然后将其打开。</p>
+<p>检验路径没问题后，选择“发现功能”。单击“混合现实工具包(0&#x2F;10)”左侧的“+”按钮，然后选择“混合现实工具包基础版”的最新版本（foundation）。单击“平台支持(0&#x2F;5)”左侧的“+”按钮，然后选择“混合现实 OpenXR 插件”的最新版本。</p>
+<p>做出选择后，单击“获取功能”。选择“验证”以验证所选的包。 显示“未检测到任何验证问题”后，单击“确定”</p>
+<p><em><strong>*配置unity*</strong></em></p>
+<p>系统应显示 MRTK 项目配置器。如果未显示，手动打开它：在菜单栏上，选择“混合现实”&gt;“工具包”&gt;“实用程序”&gt;“为 MRTK 配置项目”：</p>
+<ol>
+<li>选择“Unity OpenXR 插件”以启用 XR 插件管理，并将 Unity OpenXR 插件添加到项目。</li>
+<li>在“欢迎使用 MRTK!”屏幕上，选择“显示 XR 插件管理设置”。</li>
+<li>随即打开“项目设置”窗口。确保你位于显示“通用 Windows 平台”设置（Windows 徽标选项卡）的“XR 插件管理”页面上。（unity要事先安装universal windows platform build support模块）</li>
+<li>确保选中“在启动时初始化 XR”，然后在“插件提供程序”下单击“openXR”。</li>
+<li>加载 OpenXR 插件，然后在“OpenXR”下方出现两个项目。 选择第一个，即“Microsoft HoloLens 功能组”。</li>
+<li>在“MRTK 项目配置器”窗口中，选择“应用设置”。</li>
+<li>单击“下一步”，然后单击“导入 TMP Essentials”。</li>
+<li>出现“MRTK 安装程序已完成!”面板时，单击“完成”。</li>
+</ol>
+<p>为 OpenXR 配置项目设置：</p>
+<p>1．Unity 重启后，在菜单栏中，选择“编辑”&gt;“项目设置…”。（project settings）</p>
+<p>2．在“项目设置”窗口的左侧列中，选择“播放器”。（player）</p>
+<p>3．单击“发布设置”（publishing settings）下拉列表，然后在“包名称”字段中输入合适的名称，例如 MRTK-Tutorials-Getting-Started。（包名称是应用的唯一标识符。 如果要避免覆盖以前安装的同名应用版本，则应在部署应用之前更改此标识符。）</p>
+<p>在菜单栏中，依次选择“混合现实”&gt;“工具包”&gt;“添加到场景并配置…”。（“混合现实工具包”设置会显示在检查器中）</p>
+<p><em><strong>*Unity 编辑器内输入模拟*</strong></em></p>
+<p>你可以使用 Unity 的编辑器内输入模拟功能来测试全息对象行为。</p>
+<p><em><strong>*更改场景中的视图：*</strong></em></p>
+<p>要向前&#x2F;向左&#x2F;向后&#x2F;向右移动摄像机，按 W&#x2F;A&#x2F;S&#x2F;D 键。</p>
+<p>要垂直移动相机，按 Q 和 E 键。</p>
+<p>要旋转相机，按鼠标右键，然后拖动。</p>
+<p><em><strong>*模拟手控输入：*</strong></em></p>
+<p>要启用模拟右手，按住空格键。 要移除该手，松开空格键。</p>
+<p>要启用模拟左手，按住左 Shift 键。 要移除该手，松开该键。</p>
+<p>要在场景中移动左手或右手，移动鼠标。</p>
+<p>要向前或向后移动手，滚动鼠标滚轮。</p>
+<p>要模拟收缩手势，单击鼠标左键。</p>
+<p>要旋转手，按住空格键 + CTRL 键（右手）或按住左 Shift 键 + CTRL 键（左手），然后移动鼠标。</p>
+<p><em><strong>*持久的手*</strong></em></p>
+<p>要在不继续按住某个键的情况下启用手并使它在屏幕上，请按 T（左手）或 Y（右手）。 再次按这些键可移除手。</p>
+<p><em><strong>*Unity 中生成应用程序*</strong></em></p>
+<p>在菜单栏中，选择“File”&gt;“Build Settings…”。</p>
+<p>在“生成设置”窗口中，单击“添加打开的场景”按钮，将当前场景添加到“生成中的场景”列表中 。单击“生成”按钮。</p>
+<p>在“Build Universal Windows Platform”窗口中，导航到希望用于存储生成的文件夹，或者新建一个文件夹并导航到它，然后单击“Select Folder”按钮开始生成过程。</p>
+<p><em><strong>*Unity中与模型交互*</strong></em></p>
+<p>若要使对象在使用跟踪手时可抓取，必须附加三个组件：</p>
+<p>碰撞体组件（无需在此执行任何操作 - Unity 立方体默认已附加盒型碰撞体）</p>
+<p>“对象操控器(脚本) objectManipulator”组件</p>
+<p>NearInteractionGrabbable（脚本）组件</p>
+
+
+                            <!-- Meta -->
+                            <div class="post-meta">
+                                <hr>
+                                <br>
+                                <div class="post-tags">
+                                    
+                                </div>
+                                <div class="post-date">
+                                    
+                                        2023-04-10
+                                    
+                                </div>
+                            </div>
+                    </div>
+
+                    <!-- Comments -->
+                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                        <!-- Disqus Comments -->
+
+
+                    </div>
+                </div>
+            </div>
+        </article>
+</section>
+
+<!-- Image viewer-->
+
+    <!-- Custom picture view-->
+    <link href="/css/viewer.min.css" rel="stylesheet" />
+    <script
+      src="/js/viewer.min.js"
+      type="text/javascript"
+      charset="utf-8"
+    ></script>
+    
+    <script type="text/javascript">
+      // set image viewer
+      Viewer.setDefaults({
+        zoomRatio: [0.5],
+        navbar: false,
+        toolbar: false,
+        button: false,
+        title: [2, (image, imageData) => `${image.alt}`],
+        show: function() {
+          this.viewer.zoomTo(0.5);
+        }
+      });
+      var imageList = document.getElementsByTagName("img");
+      Array.prototype.forEach.call(imageList, element => {
+        var viewer = new Viewer(element);
+      });
+    </script>
+
+    
+
+<!-- TOC -->
+
+    <aside id="article-toc" role="navigation" class="fixed">
+        <div id="article-toc-inner">
+            
+        </div>
+    </aside>
+
+    <!-- Scripts -->
+    <script type="text/javascript">
+    console.log("© zchen9 🙋 2015-" + new Date().getFullYear());
+</script>
+  
+    <!-- Google Analytics -->
+    
+
+    <!-- Service Worker -->
+    <!-- if using service worker -->
+
+    
+</body>
+
+</html>

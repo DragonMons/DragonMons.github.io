@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="*三维对象交互入门*
+*简介*
+· 使用 MRTK 的按钮和菜单预制创建一个基础用户界面。
+· 添加动态工具提示 UI 元素。
+· 围绕三维对象添加边界控件
+*UI 按钮*
+按钮可帮助用户触发即时操作。 它是 MRTK 提供的基础组件之一。 根据具体情况，可以使用各种类型的按钮预制。 按钮基于可交互">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="John Doe">
+    
+
+    <!-- Title -->
+    
+    <title>MR火星车学习笔记（3）——三维对象交互入门 | Hexo</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//cdn.jsdelivr.net/npm/bootstrap@3.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//cdn.jsdelivr.net/npm/font-awesome@4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Noto+Serif:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- jQuery -->
+    <script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="//cdn.jsdelivr.net/npm/bootstrap@3.3.6/dist/js/bootstrap.min.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+
+    <!-- Content -->
+    <section class="article-container">
+    <!-- Back Home -->
+    <a class="nav-back" href="/">
+    <i class="fa fa-puzzle-piece"></i>
+</a>
+
+        <!-- Page Header -->
+        <header class="intro-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                        <div class="post-heading">
+                            <h1>
+                                MR火星车学习笔记（3）——三维对象交互入门
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Post Content -->
+        <article>
+            <div class="container">
+                <div class="row">
+                    <!-- Post Main Content -->
+                    <div class="post-content col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                        <p><em><strong>*三维对象交互入门*</strong></em></p>
+<p><em><strong>*简介*</strong></em></p>
+<p>· 使用 MRTK 的按钮和菜单预制创建一个基础用户界面。</p>
+<p>· 添加动态工具提示 UI 元素。</p>
+<p>· 围绕三维对象添加边界控件</p>
+<p><em><strong>*UI 按钮*</strong></em></p>
+<p>按钮可帮助用户触发即时操作。 它是 MRTK 提供的基础组件之一。 根据具体情况，可以使用各种类型的按钮预制。 按钮基于可交互脚本组件，在不同的交互式图面上提供平滑的 UI 控件。 可交互模块是一个一体式模块，使任何项具有交互性和意识。 可交互是一个笼统术语，包括由触摸、手部射线、语音等组成的所有形式的输入，并将这些交互集中到活动和可见主题响应中。</p>
+<p><em><strong>*UI 菜单*</strong></em></p>
+<p>菜单是一个 UX 控件，它提供一组按钮或不同的 UI 组件。 它可跨用户框架浮动，随时轻松可用。 由于它与人员松散耦合，因此它不再影响用户与目标内容的交互。 用户可以使用“固定”按钮来锁定&#x2F;解锁菜单。 可在所选位置抓取菜单，并重定位到所选位置</p>
+<p><em><strong>*边界控件*</strong></em></p>
+<p>当你在周围放置全息影像时会很有趣，当你可以使用手或任何输入源处理这些全息影像时，事情会变得更有趣。 若要使用跟踪手操作和抓取对象，这些对象必须附加以下组件：</p>
+<ul>
+<li><p>l 碰撞体：碰撞体组件概述了用于身体碰撞的 GameObject 的形式。 不可见的碰撞体不需要与 GameObject 的网格具有完全相同的形式。 在游戏中，网格的粗略近似通常更有效且不可区分。</p>
+</li>
+<li><p>l 对象操控器(脚本)：ObjectManipulator 脚本能够让对象变得可移动、可缩放和可旋转，这些操作可通过一只或两只手来实现。 对象操控器可以配置为操作项目将如何响应大量输入。 该脚本必须处理最多种类的交互，包括 HoloLens 2 关节人手、HoloLens 2 手部射线、HoloLens 1 注视和手势，以及沉浸式头戴显示设备运动控制器输入。</p>
+</li>
+<li><p>l NearInteractionGrabbable：NearInteractionGrabbable 组件可帮助你抓取跟踪手附近的对象。</p>
+</li>
+</ul>
+<p><em><strong>*创建按钮的静态面板*</strong></em></p>
+<p>在目标对象下创建一个“Buttons”空对象，在Assets -&gt; MRTK.Tutorials.GettingStarted -&gt; Prefabs路径里，单击“PressableRoundButton”预制体并将其拖动到目标“Buttons”空对象里面，复制两次，最终共三个预制体。选择“Buttons”对象，然后在“检查器Inspector”窗格中，选择“添加组件”以添加“GridObjectCollection”组件。 如下所述对其进行配置：</p>
+<ul>
+<li>l Sort type排序类型：子顺序</li>
+<li>l Layout布局：水平</li>
+<li>l Cell width单元格宽度：0.2</li>
+<li>l Anchor定位点：中部左对齐</li>
+<li>l 选择“更新集合Update Collection”以更新“Buttons”子对象的位置：</li>
+</ul>
+<p>按钮命名为“Hints”、“Explode”和“Reset”。接着为所有三个按钮都定义Text Mesh Pro，对于每个按钮，选择“SeeItSayItLabel”&gt;“TextMeshPro”子对象，然后在“检查器”窗格中，更改相应的“TextMeshPro - 文本”组件文本，使其与按钮名称匹配。</p>
+<p>折叠 Buttons 对象的子对象。 在“层次结构”窗格中，分别选择按钮对象，然后在“检查器”窗口中，配置相应的“Interactable.OnClick ()”事件：</p>
+<ul>
+<li>l 选择“Hints”按钮对象，然后在“检查器”窗口中，按如下所示配置“Interactable.OnClick ()”事件。向“无(对象)”字段分配“RoverAssembly”对象，从“无函数”下拉列表中，选择“PlacementHintsController”&gt;“TogglePlacementHints ()”将此函数设置为触发事件时要运行的操作</li>
+<li>l 选择“Explode”按钮对象，然后在“检查器”窗口中，按如下所示配置“Interactable.OnClick ()”事件。向“无(对象)”字段分配“RoverAssembly”对象，从“无函数”下拉列表中，选择“ExplodedViewController”&gt;“ToggleExplodedView ()”将此函数设置为触发事件时要执行的操作</li>
+<li>l 选择Reset 按钮对象，然后在“检查器”窗格中，按如下所示配置可交互的“OnClick ()”事件。向“无(对象)”字段分配“RoverAssembly”对象，从“无函数”下拉列表中，选择“PartAssemblyController”&gt;“ResetPlacement ()”将此函数设置为触发事件时要运行的操作（这一步需要添加PartAssemblyController脚本组件，需要先在后面的“使用边界控件操作三维对象”部分完成操作）</li>
+</ul>
+<p>按“播放”按钮进入“游戏”模式。 按住空格键激活手部，然后使用鼠标按“Hints”按钮切换放置提示对象的可见性，按“Explode”按钮将打开和关闭分解视图：</p>
+<p><em><strong>*创建跟随用户的动态菜单*</strong></em></p>
+<p>在“项目”窗格中，导航到“包”&gt;“混合现实工具包基础”&gt;“SDK”&gt;“功能”&gt;“UX”&gt;“预制”&gt;“菜单”文件夹。（Packages\mixed reality toolkit foundation\SDK\Features\UX\Prefabs\Menus）</p>
+<p>单击“NearMenu4x1”预制并将其拖动到“层次结构”窗口，将其转换“位置”设置为 X &#x3D; 0，Y &#x3D; -0.4，Z &#x3D; 0，并按如下所示对其进行配置：</p>
+<ul>
+<li>l 验证 SolverHandler 组件的“跟踪的目标类型tracked target type”是否设置为“头部”</li>
+<li>l 选中“RadialView”求解器组件旁边的复选框，使其在默认情况下处于启用状态</li>
+</ul>
+<p>在“层次结构”窗口中，将对象重命名为“Menu”，然后展开其 ButtonCollection 子对象以显示四个按钮 ：</p>
+<ol>
+<li>将 ButtonCollection 中的第一个按钮重命名为“Indicator”，然后在“检查器”窗格中，配置“按钮配置帮助程序(脚本)Button Config Helper（Script）”组件，如下所示：</li>
+</ol>
+<ul>
+<li>l 更改主标签文本Main Label Text以匹配按钮的名称</li>
+<li>l 在Basic Events的OnClick()里向“无(对象)”字段分配箭头外观的“指示器”对象（即方向求解器使用的Prefabs）</li>
+<li>l 从“无函数”下拉列表中，选择“GameObject”&gt;“SetActive (bool)”将此函数设置为触发事件时要执行的操作</li>
+<li>l 验证是否已选中参数复选框</li>
+<li>l 将图标更改为“搜索”图标</li>
+<li>l 若要默认禁用 V 形外观的“指示器”对象，在“层次结构”窗格中，选择箭头外观的“指示器”对象，然后在“检查器”窗格中清除其名称旁边的复选框，使其在默认情况下处于停用状态。使用“添加组件”按钮添加“方向指示器控制器(脚本)Directional Indicator Controller（Script）”组件</li>
+</ul>
+<ol start="2">
+<li>将第二个按钮重命名为“TapToPlace”，然后在“检查器”窗口中配置“按钮配置帮助程序(脚本)”组件，如下所示 ：</li>
+</ol>
+<ul>
+<li>l 更改主标签文本Main Label Text以匹配按钮的名称</li>
+<li>l 将“RoverExplorer”&gt;“RoverAssembly”对象分配到“无(对象)”字段</li>
+<li>l 在“无函数”下拉列表中选择“TapToPlace”&gt;“启用布尔bool enabled”，以便在触发事件时更新此属性</li>
+<li>l 验证是否已选中参数复选框</li>
+<li>l 将图标更改为“带有射线的手”图标</li>
+<li>l 在“层次结构”窗口中选择“RoverAssembly”对象，然后在“检查器”窗口中配置“点击放置(脚本)tap to place”组件</li>
+<li>l 取消选中tap to place名称旁的复选框，以使其在默认情况下处于非活动状态</li>
+<li>l 在“On Placing Stopped ()”事件部分中，选择 + 图标以添加新事件：</li>
+<li>l 将“RoverExplorer”“RoverAssembly”对象分配到“无(对象)”字段&gt;</li>
+<li>l 在“无函数”下拉列表中选择“TapToPlace”&gt;“启用布尔bool enabled”，以便在触发事件时更新此属性</li>
+<li>l 验证是否已取消选中参数复选框</li>
+</ul>
+<ol start="3">
+<li>将第三个按钮重命名为 BoundsControl_Enable，然后在“检查器”窗格中，按如下所示配置“按钮配置帮助程序(脚本)”组件：</li>
+</ol>
+<p>（这一步需要添加BoundsControl脚本组件和ObjectManipulator脚本组件，需要先在后面的“使用边界控件操作三维对象”部分完成操作）</p>
+<ul>
+<li>l 将“主标签文本Main Label Text”更改为“启用”</li>
+<li>l 向“无(对象)”字段分配“RoverExplorer”对象</li>
+<li>l 从“无函数”下拉列表中，选择“BoundsControl”&gt;“启用布尔bool enabled”以在事件触发时更新此属性值</li>
+<li>l 验证是否已选中参数复选框</li>
+<li>l 选择“+”小图标以添加另一个事件</li>
+<li>l 向“无(对象)”字段分配“RoverExplorer”对象</li>
+<li>l 从“无函数”下拉列表中，选择“ObjectManipulator”&gt;“启用布尔”以在事件触发时更新此属性值</li>
+<li>l 验证是否已选中参数复选框</li>
+<li>l 将图标保留为“带有边界控件的多维数据集”图标</li>
+</ul>
+<ol start="4">
+<li>将第四个和最后一个按钮重命名为“BoundsControl_Disable”，然后在“检查器”窗格中，配置“按钮配置帮助程序(脚本)”组件，如下所示：</li>
+</ol>
+<p>（这一步需要添加BoundsControl脚本组件和ObjectManipulator脚本组件，需要先在后面的“使用边界控件操作三维对象”部分完成操作）</p>
+<ul>
+<li>l 将“主标签文本Main Label Text”更改为“禁用”</li>
+<li>l 向“无(对象)”字段分配“RoverExplorer”对象</li>
+<li>l 从“无函数”下拉列表中，选择“BoundsControl”&gt;“启用布尔bool enabled”以在事件触发时更新此属性值</li>
+<li>l 验证是否已取消选中参数复选框</li>
+<li>l 选择“+”小图标以添加另一个事件</li>
+<li>l 向“无(对象)”字段分配“RoverExplorer”对象</li>
+<li>l 从“无函数”下拉列表中，选择“ObjectManipulator”&gt;“启用布尔”以在事件触发时更新此属性值</li>
+<li>l 验证是否已取消选中参数复选框</li>
+<li>l 将图标更改为“带有边界控件的多维数据集”图标</li>
+</ul>
+<p><em><strong>*添加工具提示*</strong></em></p>
+<p>在“项目”窗格中，导航到“包”&gt;“混合现实工具包基础”&gt;“SDK”&gt;“功能”&gt;“UX”&gt;“预制”&gt;“工具提示”文件夹（Packages\mixed reality toolkit foundation\SDK\Features\UX\Prefabs\tooltips），找到工具提示预制。</p>
+<p>在“层次结构”窗格中，展开“RoverExplorer”&gt;“RoverParts”对象并选择其所有子漫游车部件对象，然后在“检查器”窗格中，选择“添加组件”以添加“ToolTipSpawner”组件，并按如下所示对其进行配置：</p>
+<ul>
+<li>l 确保选中“启用焦点Focus Enabled”复选框，以要求用户查看部件以显示工具提示</li>
+<li>l 从“项目”窗口中的“工具提示”文件夹将“简单行工具提示Simple Line ToolTip”预制件分配给“预制件Prefab”字段</li>
+<li>l 将“工具提示替代设置ToolTip Override Setting”&gt;“设置模式Setting Mode”更改为“替代Override”</li>
+<li>l 将“工具提示替代设置ToolTip Override Setting”&gt;“手动透视本地位置Manual Pivot Local Position Y”更改为 1.5</li>
+<li>l 在“层次结构”窗格中，选择第一个漫游车部件，“RoverParts”&gt;“Camera_Part”，并配置“ToolTipSpawner”组件，更改“工具提示文本Tool Tip Text”以反映部件的名称，即“照相机”</li>
+<li>l 对于 Generator_Part，请将“工具提示文本”更改为“生成器”</li>
+<li>l 对于 Lights_Part，将“工具提示文本Tool Tip Text”更改为“灯光”</li>
+<li>l 对于 UHFAntenna_Part，将“工具提示文本Tool Tip Text”更改为“UHF 天线”字段</li>
+<li>l 对于 Spectrometer_Part，将“工具提示文本Tool Tip Text”更改为“分光仪”</li>
+</ul>
+<p>按下“播放”进入“游戏”模式。 然后，按住鼠标右键，同时移动鼠标，直到注视到其中一个部件，并显示该部件的工具提示</p>
+<h2 id="使用边界控件操作三维对象"><a href="#使用边界控件操作三维对象" class="headerlink" title="*使用边界控件操作三维对象*"></a><em><strong>*使用边界控件操作三维对象*</strong></em></h2><p>在“层次结构”窗格中，展开 RoverExplorer &gt; RoverParts 对象，并选择其所有子漫游车部件对象和 RoverAssembly 对象，然后在“检查器”窗格中，使用“添加组件”按钮将以下组件添加到所有选定的对象：</p>
+<ul>
+<li>l “对象操控器(脚本)ObjectManipulator”组件</li>
+<li>l “NearInteractionGrabbable”组件</li>
+<li>l “部件程序集控制器(脚本)Part Assembly Controller（Script）”组件</li>
+</ul>
+<p>在所有漫游车部件对象和 RoverAssembly 对象仍处于选中状态的情况下，在“检查器”窗格中，配置“对象操控器(脚本)ObjectManipulator”组件。从“双手操作类型Two Hand Manipulation”下拉列表中，清除“缩放Scale”复选框，以便仅启用“移动Move”和“旋转Rotate”：</p>
+<p>在“项目”窗格中，导航到“包”&gt;“混合现实工具包标准资产”&gt;“音频”文件夹，找到音频剪辑（Packages\mixed reality toolkit standard assets\audio）</p>
+<p>在“层次结构”窗格中，重新选择所有“漫游车部件对象”，然后在“检查器”窗格中，选择“添加组件”以添加“音频源Audio Source”组件并按如下所示对其进行配置：</p>
+<ul>
+<li>l 将“MRTK_Scale_Start”音频剪辑分配到“AudioClip”字段</li>
+<li>l 取消选中“唤醒时播放Play On Awake”复选框</li>
+<li>l 将“空间混合Spatial Blend”更改为“1”</li>
+</ul>
+<p>在“层次结构”窗格中，展开 RoverAssembly &gt; RoverModel_PlacementHints_XRay &gt; Parts_PlacementHints 对象，以显示所有放置提示对象，然后选择第一个漫游车部件，RoverParts &gt; Camera_Part，并按如下所示配置“部件程序集控制器(脚本)Part Assembly Controller（Script）”组件：</p>
+<ul>
+<li>l 将“Camera_PlacementHint”对象分配到“定位位置”字段</li>
+<li>l 对于“Generator_Part”，将“Generator_PlacementHint”对象分配到“定位位置”字段</li>
+<li>l 对于“Lights_Part”，将“Lights_PlacementHint”对象分配到“定位位置”字段</li>
+<li>l 对于“UHFAntenna_Part”，将“UHFAntenna_PlacementHint”对象分配到“定位位置”字段</li>
+<li>l 对于“Spectrometer_Part”，将“Spectrometer_PlacementHint”对象分配到“定位位置”字段</li>
+<li>l 对于“RoverAssembly”，将对象本身（即同一“RoverAssembly”对象）分配到“定位位置”字段</li>
+</ul>
+<p>在“层次结构”窗口中选择“RoverExplorer”对象，然后在“检查器”窗口中，使用“添加组件”按钮添加以下组件 ：</p>
+<ul>
+<li>l BoundsControl 组件</li>
+<li>l “对象操控器(脚本)ObjectManipulator ”组件</li>
+</ul>
+<p>然后取消选中所有组件旁边的复选框，以默认“禁用”它们</p>
+
+
+                            <!-- Meta -->
+                            <div class="post-meta">
+                                <hr>
+                                <br>
+                                <div class="post-tags">
+                                    
+                                </div>
+                                <div class="post-date">
+                                    
+                                        2023-04-10
+                                    
+                                </div>
+                            </div>
+                    </div>
+
+                    <!-- Comments -->
+                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                        <!-- Disqus Comments -->
+
+
+                    </div>
+                </div>
+            </div>
+        </article>
+</section>
+
+<!-- Image viewer-->
+
+    <!-- Custom picture view-->
+    <link href="/css/viewer.min.css" rel="stylesheet" />
+    <script
+      src="/js/viewer.min.js"
+      type="text/javascript"
+      charset="utf-8"
+    ></script>
+    
+    <script type="text/javascript">
+      // set image viewer
+      Viewer.setDefaults({
+        zoomRatio: [0.5],
+        navbar: false,
+        toolbar: false,
+        button: false,
+        title: [2, (image, imageData) => `${image.alt}`],
+        show: function() {
+          this.viewer.zoomTo(0.5);
+        }
+      });
+      var imageList = document.getElementsByTagName("img");
+      Array.prototype.forEach.call(imageList, element => {
+        var viewer = new Viewer(element);
+      });
+    </script>
+
+    
+
+<!-- TOC -->
+
+    <aside id="article-toc" role="navigation" class="fixed">
+        <div id="article-toc-inner">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E8%BE%B9%E7%95%8C%E6%8E%A7%E4%BB%B6%E6%93%8D%E4%BD%9C%E4%B8%89%E7%BB%B4%E5%AF%B9%E8%B1%A1"><span class="toc-text">*使用边界控件操作三维对象*</span></a></li></ol>
+        </div>
+    </aside>
+
+    <!-- Scripts -->
+    <script type="text/javascript">
+    console.log("© zchen9 🙋 2015-" + new Date().getFullYear());
+</script>
+  
+    <!-- Google Analytics -->
+    
+
+    <!-- Service Worker -->
+    <!-- if using service worker -->
+
+    
+</body>
+
+</html>
